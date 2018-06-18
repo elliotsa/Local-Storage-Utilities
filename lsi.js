@@ -6,4 +6,15 @@ const remove = key => localStorage.removeItem(key);
 
 const print = key => console.log(get(key));
 
-export { save, get, remove, print };
+const map = (key, cb) => {
+  const tmp = get(key);
+  let result;
+  if (Array.isArray(result)) {
+    result = tmp.map(cb);
+  } else {
+    throw new Error('The returned value is not an array');
+  }
+  return result;
+};
+
+export { save, get, remove, print, map };
