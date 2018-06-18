@@ -9,7 +9,7 @@ const print = key => console.log(get(key));
 const map = (key, cb) => {
   const tmp = get(key);
   let result;
-  if (Array.isArray(result)) {
+  if (Array.isArray(tmp)) {
     result = tmp.map(cb);
   } else {
     throw new Error('The returned value is not an array');
