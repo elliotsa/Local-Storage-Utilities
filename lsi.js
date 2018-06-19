@@ -1,9 +1,12 @@
 import Queue from './queue.js';
 
-const verifyArray = value =>
-  Array.isArray(value)
-    ? value
-    : new Error('The returned value is not an array');
+const verifyArray = value => {
+  if (Array.isArray(value)) {
+    return value;
+  } else {
+    throw new Error('The value is not an array');
+  }
+};
 
 const save = (key, value) => localStorage.setItem(key, JSON.stringify(value));
 
