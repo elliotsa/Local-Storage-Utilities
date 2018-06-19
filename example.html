@@ -10,10 +10,11 @@
 
 <body>
   <script type="module">
-    import { save, print, remove, queue } from "./lsi.js";
+    import { save, print, remove, map } from "./lsi.js";
     save('example', [1, 2, 3]);
-    const queue_1 = queue('example');
-    console.log(queue_1);
+    save('map_example', map('example', (n) => n + 1));
+    print('example');
+    print('map_example');
   </script>
 </body>
 
