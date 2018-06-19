@@ -6,5 +6,6 @@ Some quick utilities to more easily interact with the LocalStorage API.
 - `get`: Takes in the `key` and returns the `value` stored there. Will parse the `value`.
 - `remove`: Takes in a `key` and deletes the `value` stored there.
 - `print`: Takes in a `key` and logs the `value`.
+- `map`: Takes in a `key` and `callback` and maps over those values as long as its an array.
 
 Note: There are no default exports, just named exports.

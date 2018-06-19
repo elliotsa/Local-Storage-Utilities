@@ -1,3 +1,10 @@
+import Queue from './queue.js';
+
+const verifyArray = value =>
+  Array.isArray(value)
+    ? value
+    : new Error('The returned value is not an array');
+
 const save = (key, value) => localStorage.setItem(key, JSON.stringify(value));
 
 const get = key => JSON.parse(localStorage.getItem(key));
@@ -6,15 +13,8 @@ const remove = key => localStorage.removeItem(key);
 
 const print = key => console.log(get(key));
 
-const map = (key, cb) => {
-  const tmp = get(key);
-  let result;
-  if (Array.isArray(tmp)) {
-    result = tmp.map(cb);
-  } else {
-    throw new Error('The returned value is not an array');
-  }
-  return result;
-};
+const map = (key, cb) => verifyArray(get(key)).map(cb);
 
-export { save, get, remove, print, map };
+const queue = key => new Queue(verifyArray(get(key)));
+
+export { save, get, remove, print, map, queue };
